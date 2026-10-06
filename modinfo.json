@@ -1,11 +1,11 @@
 {
   "type": "code",
-  "modid": "genericstructureramfix",
-  "name": "Generic Structure RAM Fix",
-  "authors": ["TuNombre"],
-  "description": "Optimización genérica de memoria RAM para la generación de estructuras.",
+  "modid": "garbagecollector",
+  "name": "RAM Garbage Collector",",
+  "authors": ["Nilsson"],
+  "description": "Generic RAM memory optimization.",
   "version": "1.0.0",
   "dependencies": {
-    "game": "1.22.x"
+    "game": "1.22.7"
   }
 }
