@@ -1,10 +1,10 @@
 {
   "type": "code",
-  "modid": "garbagecollector",
-  "name": "RAM Garbage Collector",",
+  "modid": "ramgarbagecollector",
+  "name": "RAM Garbage Collector",
   "authors": ["Nilsson"],
-  "description": "Generic RAM memory optimization.",
-  "version": "1.0.0",
+  "description": "Generic RAM memory optimization and distance culling suite.",
+  "version": "1.0.1",
   "dependencies": {
     "game": "1.22.7"
   }
