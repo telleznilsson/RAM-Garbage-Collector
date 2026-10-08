@@ -13,7 +13,7 @@ namespace RAMGarbageCollector
         // Obliga al motor a ignorar este archivo en el servidor y cargarlo solo en el cliente
         public override bool ShouldLoad(EnumAppSide forSide)
         {
-            return forSide == EnumAppSide.Client;
+            return true;
         }
 
         public override void StartClientSide(ICoreClientAPI api)
@@ -45,42 +45,6 @@ namespace RAMGarbageCollector
         {
             harmony?.UnpatchAll(HarmonyId);
             base.Dispose();
-        }
-    }
-
-    // =========================================================================
-    // PARCHE: Culling de estructuras complejas y BlockEntities a distancia
-    // =========================================================================
-    [HarmonyPatch(typeof(BlockEntity), "OnTesselation")]
-    public class StructureCullingPatch
-    {
-        private const double MaxDistanceSq = 1024.0; 
-
-        // CORRECCIÓN: El parámetro cambió a tessThreadTesselator
-        static bool Prefix(BlockEntity __instance, ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator, ref bool __result)
-        {
-            try
-            {
-                if (__instance?.Api is ICoreClientAPI capi)
-                {
-                    var camPos = capi.World?.Player?.Entity?.CameraPos;
-                    if (camPos == null || __instance.Pos == null) return true;
-
-                    double distSq = camPos.SquareDistanceTo(__instance.Pos.X, __instance.Pos.Y, __instance.Pos.Z);
-
-                    if (distSq > MaxDistanceSq)
-                    {
-                        __result = true; 
-                        return false; 
-                    }
-                }
-            }
-            catch
-            {
-                return true; 
-            }
-
-            return true;
         }
     }
 }

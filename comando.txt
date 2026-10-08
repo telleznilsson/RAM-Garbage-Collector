@@ -1,0 +1,1 @@
+dotnet build -c Release -p:VintagestoryDir="C:\Users\telle\AppData\Roaming\Vintagestory"
