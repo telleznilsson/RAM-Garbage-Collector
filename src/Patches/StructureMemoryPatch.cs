@@ -21,7 +21,7 @@ namespace GenericStructureRAMFix.Patches
 
         private void OnTimer(float dt)
         {
-            // Limpieza general suave: Solo limpia si hay basura acumulada y lo hace en segundo plano
+            // Limpieza general suave?: MIS COJONES  VAMOS A TODO GAS
             GC.Collect(2, GCCollectionMode.Optimized, false);
         }
     }

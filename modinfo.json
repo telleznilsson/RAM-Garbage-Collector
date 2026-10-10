@@ -4,7 +4,7 @@
   "name": "RAM Garbage Collector optimizer",
   "authors": ["Nilsson"],
   "description": " RAM memory fix and optimization  .",
-  "version": "1.1.0",
+  "version": "1.4.0",
   "dependencies": {
     "game": "1.22.7"
   }
